@@ -1,0 +1,3 @@
+### Write libraries version for Streamlit Sharing
+# pip3 freeze| grep <package-name, eg.streamlit>
+streamlit==0.81.0
