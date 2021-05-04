@@ -1,3 +1,4 @@
-### Write libraries version for Streamlit Sharing
+### Write libraries version for Streamlit to be Shared.
+# Check version by below: (Default:latest if not designate)
 # pip3 freeze| grep <package-name, eg.streamlit>
 streamlit==0.81.0
