@@ -1,11 +1,11 @@
+### Exec Streamlit
+# cd path/to/dir
+# streamlit run main.py
+
 ### Install Streamlit Library
 # sudo apt-get update
 # sudo pip3 install --upgrade pip
 # sudo pip3 install --upgrade streamlit
-
-### Exec Streamlit
-# cd path/to/dir
-# streamlit run main.py
 
 ### Import Packages
 import streamlit as st
@@ -76,7 +76,7 @@ bar = ""                      # <=Do not work
 
 ### Prepare & Show Image under Condition
 # if st.checkbox("Show Image"):
-#   img = Image.open("/home/tkanayama/Works/02_Development/00_Personal/python/streamlit/face2.jpg")
+#   img = Image.open("/home/tkanayama/Works/02_Development/00_Personal/python/streamlit/img/face.jpg")
 #   st.image(img, caption="Kohei Imanishi", use_column_width=True)
 
 ### Interative Widgets

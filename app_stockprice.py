@@ -1,3 +1,7 @@
+### Exec Streamlit
+# cd path/to/dir
+# streamlit run app.py
+
 ### Install YFinance Library and import :
 # pip3 install yfinance
 
