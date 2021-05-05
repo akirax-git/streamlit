@@ -1,4 +1,4 @@
-### Install Streamlit
+### Install Streamlit Library
 # sudo apt-get update
 # sudo pip3 install --upgrade pip
 # sudo pip3 install --upgrade streamlit
