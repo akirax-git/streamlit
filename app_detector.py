@@ -79,46 +79,46 @@ if uploaded_file is not None:
 
     ### Prepare data
     # Prepare font data
-    font = ImageFont.truetype(font="./media/Helvetica 400.ttf", size=50)
+    font = ImageFont.truetype(font="./img/Helvetica 400.ttf", size=50)
 
     # Prepare image obect (code comes from Example in streamlit image method)
     img = Image.open(uploaded_file)
 
-    # Set image_path and Save image in it (code comes from doc about Image library)
-    img_path = f"media/{uploaded_file.name}"
+    # Set image_pat and Save image in it (code comes from doc about Image library)
+    img_path = f"img/{uploaded_file.name}"
     img.save(img_path)
 
-    ### Create object that retrieve image to annotate or retouch 2D graphics on the image itself
-    # Ref. https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html
+    # Set image as a subject of ImageDraw
     draw = ImageDraw.Draw(img)
 
     # Detect objects' boundary coordinates
     objects = detect_objects(img_path)
 
-    ### Draw Rectangular
+    ### Draw Rectangular above(z)
     for object in objects:
-
         # object coodinate
         x = object.rectangle.x
         y = object.rectangle.y
         w = object.rectangle.w
         h = object.rectangle.h
 
+        # Object boundary baseline
+        draw.rectangle([(x, y), (x+w, y+h)], fill=None, outline="green", width=5)
+
         # object name *object is changed to object_property
         # 違う→:https://docs.microsoft.com/ja-jp/azure/cognitive-services/computer-vision/concept-object-detection
         caption = object.object_property
 
-        # ImageDraw.textsize() Return the size of the given string, in pixels.
+        # Measure the caption size with use of font
         text_w, text_h = draw.textsize(caption, font=font)
 
-        # Edit the rectangle boundary on image within the draw object
-        draw.rectangle([(x, y), (x+w, y+h)], fill=None, outline="green", width=5)
+        # Object caption area
         draw.rectangle([(x, y), (x+text_w, y+text_h)], fill="green", outline=None, width=5)
 
-        # Edit the text on image within the draw object
+        # Object caption
         draw.text((x, y), caption, fill="white", font=font)
 
-    ### Set edeited image img while it was in the draw object
+    ### Set Image below(z)
     st.image(img)
 
     ### Display tags
