@@ -1,2 +1,3 @@
 # Web API Secret Keys
-secret*.json
+secret.json
+secret-*.json
