@@ -1,3 +1,7 @@
+### Exec Streamlit
+# cd path/to/dir
+# streamlit run app.py
+
 ### Text-to-speech Original Doc:
 # https://cloud.google.com/text-to-speech/docs/quickstart-client-libraries
 # Synthesizes speech from the input string of text or ssml. ssml must be well-formed according to:
@@ -7,16 +11,17 @@
 # !sudo -H pip3 install --upgrade google-cloud-texttospeech
 # !export GOOGLE_APPLICATION_CREDENTIALS="./secret-gcp.json" <= this is instead done by python below
 
-### Instantiate GCP account and Authenticate credentials in secret.json
+### Set credentials in secret.json to env-var (tts: text to speech)
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./secret-gcp.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./secret-gcp-srv-tts.json"
 
 ### Define Function of Text To Speech
-def texttospeech(text = "こんにちは、たける", lang="JP", gender="male"):
+def texttospeech(text:str, lang:str, gender:str):
   # Import texttospeech
   from google.cloud import texttospeech
 
-  # Instantiates a client
+  # Authenticate & Instantiate the client
+  # Note: env-var GOOGLE_APPLICATION_CREDENTIALS is read by the method in auto
   client = texttospeech.TextToSpeechClient()
 
   # Set the text input to be synthesized

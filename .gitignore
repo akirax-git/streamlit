@@ -1,3 +1,2 @@
 # Web API Secret Keys
-secret.json
-secret-gcp.json
+secret-*.json

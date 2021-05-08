@@ -19,16 +19,16 @@ import time
 import sys
 import os
 
-### Read credentials from secret.json
+### Read credentials from secret.json (cognitive vision)
 import json
-with open("secret.json") as f:
+with open("secret-maz-srv-cv.json") as f:
     secret = json.load(f)
 
 # Set KEY , ENDPOINT as constant from secret.json
 KEY = secret["KEY"]
 ENDPOINT = secret["ENDPOINT"]
 
-### Authenticate the client
+# Authenticate & Instantiate the client
 computervision_client = ComputerVisionClient(ENDPOINT, CognitiveServicesCredentials(KEY))
 
 ### Function to detect objects' boundary coordinates
